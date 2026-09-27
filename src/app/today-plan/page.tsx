@@ -51,6 +51,11 @@ const TodayPlan = () => {
     }
   };
 
+  // Mark a today's-plan workout as done (removes it from the plan)
+  const handleMarkAsDone = (id: string | number) => {
+    removeFromTodayPlan(id);
+  };
+
   return (
     <div className="min-h-screen bg-[#0d0e12] text-white p-6 md:p-12 font-sans">
       <div className="max-w-6xl mx-auto space-y-8">
@@ -99,7 +104,7 @@ const TodayPlan = () => {
 
         {/* Filter Controls Bar*/}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-          {/* Tab Controls[cite: 7] */}
+          {/* Tab Controls */}
           <div className="flex bg-[#13141c] border border-[#222431] p-1 rounded-xl">
             <button
               onClick={() => setActiveTab("today")}
@@ -154,7 +159,7 @@ const TodayPlan = () => {
                   key={workout.id ? `${workout.id}-${index}` : index}
                   className="bg-[#13141c] border border-[#222431] rounded-2xl p-4 flex flex-col md:flex-row items-center gap-6 justify-between hover:border-gray-700 transition-all"
                 >
-                  {/* Left Section: Thumbnail & Details[cite: 7] */}
+                  {/* Left Section: Thumbnail & Details */}
                   <div className="flex items-center gap-5 w-full md:w-auto">
                     {/* Image */}
                     <div className="relative w-36 h-20 rounded-xl overflow-hidden shrink-0 bg-gray-800">
@@ -228,7 +233,7 @@ const TodayPlan = () => {
                     </div>
                   </div>
 
-                  {/* Right Section: Action Buttons[cite: 7] */}
+                  {/* Right Section: Action Buttons */}
                   <div className="flex items-center gap-4 w-full md:w-auto justify-end">
                     <Link
                       href={`/workouts/${workout.id}`}
@@ -237,7 +242,30 @@ const TodayPlan = () => {
                       View Details
                     </Link>
 
-                    {/* Delete / Remove Icon[cite: 7] */}
+                    {/* Mark as Done - only relevant for today's plan */}
+                    {activeTab === "today" && (
+                      <button
+                        onClick={() => handleMarkAsDone(workout.id)}
+                        className="px-6 py-2.5 rounded-full bg-[#d4ff26] text-black text-xs font-semibold flex items-center gap-1.5 hover:bg-[#c2ed1c] transition-all"
+                      >
+                        <svg
+                          className="w-3.5 h-3.5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={3}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        Mark as Done
+                      </button>
+                    )}
+
+                    {/* Delete / Remove Icon */}
                     <button
                       onClick={() => handleRemove(workout.id)}
                       className="text-gray-500 hover:text-red-400 p-2 transition-colors"
