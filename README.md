@@ -8,8 +8,6 @@ FitLog is a fitness tracking web app that lets users browse a library of workout
 - [Tech Stack](#tech-stack)
 - [Getting Started](#getting-started)
 - [Project Structure](#project-structure)
-- [Screenshots](#screenshots)
-- [License](#license)
 
 ## Features
 

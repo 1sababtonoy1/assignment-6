@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import bannerImg from "@/assets/banner.png";
 
 const Banner = () => {
@@ -25,9 +26,12 @@ const Banner = () => {
         </p>
 
         {/* Button */}
-        <button className="mt-8 rounded-md bg-[#b7ff00] px-7 py-4 text-sm font-bold text-black transition duration-200 hover:bg-[#a8eb00]">
+        <Link
+          href="/workouts"
+          className="mt-8 inline-block rounded-md bg-[#b7ff00] px-7 py-4 text-sm font-bold text-black transition duration-200 hover:bg-[#a8eb00]"
+        >
           BROWSE WORKOUTS
-        </button>
+        </Link>
       </div>
 
       {/* Right Image */}
