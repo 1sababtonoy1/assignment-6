@@ -4,9 +4,19 @@ import WorkoutCard from '../shared/WorkoutCard';
 import { IWorkout } from '@/types/workout.type';
 
 const getWorkouts = async () => {
-  const response = await fetch('https://api.api-store.workers.dev/api/fitlog');
-  const data = await response.json();
-  return data;
+  try {
+    const response = await fetch('https://api.api-store.workers.dev/api/fitlog');
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch workouts: ${response.status} ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error fetching workouts:', error);
+    return [];
+  }
 };
 
 const Workouts = async () => {
