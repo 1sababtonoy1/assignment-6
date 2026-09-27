@@ -22,7 +22,7 @@ const Navbar = () => {
     }`;
 
   return (
-    <nav className="border-b border-[#24262c] bg-[#0d0e11]">
+    <nav className="sticky top-0 z-50 border-b border-[#24262c] bg-[#0d0e11]">
       <div className="mx-auto flex h-[70px] md:h-[94px] max-w-[1480px] items-center justify-between px-4 md:px-7">
 
         {/* LEFT - LOGO */}
