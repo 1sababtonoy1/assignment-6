@@ -24,10 +24,19 @@ const Workouts = async () => {
 
   return (
     <section className="container mx-auto my-[70px] px-4">
+      <div className="mb-8">
+        <h2 className="text-3xl font-black uppercase tracking-wider text-white">
+          The Library
+        </h2>
+        <p className="text-gray-400 text-sm mt-1">
+          Twelve lifts covering every major muscle group.
+        </p>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {workoutsData.map((workout:IWorkout, ind:number) => {
-            return <WorkoutCard key={ind} workout={workout}/>
-})}
+        {workoutsData.map((workout: IWorkout, ind: number) => {
+          return <WorkoutCard key={ind} workout={workout} />;
+        })}
       </div>
     </section>
   );
