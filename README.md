@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FitLog 🏋️‍♂️
 
-## Getting Started
+FitLog is a fitness tracking web app that lets users browse a library of workouts, build a personalized daily workout plan, save favorites to a wishlist, and track key stats like total exercises, minutes, and calories burned — all through a clean, dark-themed, mobile-responsive interface.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+- [Screenshots](#screenshots)
+- [License](#license)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Workout Library** — Browse a grid of workouts fetched from a live API, each showing muscle-group tags, images, and stats.
+- **Today's Plan Builder** — Add workouts to a daily plan (capped at five lifts) with live-updating stats for exercises, minutes, and calories.
+- **Wishlist / Saved Workouts** — Save workouts to a separate "Saved" tab for later, independent from today's plan.
+- **Sorting & Tabs** — Switch between "Today's Plan" and "Saved" tabs, and sort either list by duration, calories, or rating.
+- **Mark as Done / Remove** — Mark a workout complete or manually remove it from either list.
+- **Responsive Sticky Navbar** — Sticky top navbar with live plan/saved counters, active-route highlighting, and a mobile hamburger menu.
+- **Workout Detail View** — Each workout links to a dedicated details page via dynamic routing.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
 
-## Learn More
+| Category         | Technology                          |
+|-------------------|--------------------------------------|
+| Framework         | [Next.js](https://nextjs.org/) (App Router) |
+| UI Library        | [React](https://react.dev/)          |
+| Language          | [TypeScript](https://www.typescriptlang.org/) |
+| Styling           | [Tailwind CSS](https://tailwindcss.com/) |
+| State Management  | React Context API                    |
+| Notifications     | [react-toastify](https://fkhadra.github.io/react-toastify/) |
+| Data Fetching     | REST API via `fetch`                 |
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

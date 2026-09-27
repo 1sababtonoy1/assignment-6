@@ -3,6 +3,7 @@
 import React, { useContext, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { toast } from "react-toastify";
 import { WorkoutsContext } from "../../context/WorkoutsContext";
 import { IWorkout } from "@/types/workout.type";
 
@@ -43,17 +44,20 @@ const TodayPlan = () => {
   );
 
   // Handle removing workout from current tab
-  const handleRemove = (id: string | number) => {
+  const handleRemove = (workout: IWorkout) => {
     if (activeTab === "today") {
-      removeFromTodayPlan(id);
+      removeFromTodayPlan(workout.id);
+      toast.info(`Removed "${workout.name}" from today's plan`);
     } else {
-      removeFromWishlist(id);
+      removeFromWishlist(workout.id);
+      toast.info(`Removed "${workout.name}" from saved`);
     }
   };
 
   // Mark a today's-plan workout as done (removes it from the plan)
-  const handleMarkAsDone = (id: string | number) => {
-    removeFromTodayPlan(id);
+  const handleMarkAsDone = (workout: IWorkout) => {
+    removeFromTodayPlan(workout.id);
+    toast.success(`"${workout.name}" marked as done! Great work 💪`);
   };
 
   return (
@@ -245,7 +249,7 @@ const TodayPlan = () => {
                     {/* Mark as Done - only relevant for today's plan */}
                     {activeTab === "today" && (
                       <button
-                        onClick={() => handleMarkAsDone(workout.id)}
+                        onClick={() => handleMarkAsDone(workout)}
                         className="px-6 py-2.5 rounded-full bg-[#d4ff26] text-black text-xs font-semibold flex items-center gap-1.5 hover:bg-[#c2ed1c] transition-all"
                       >
                         <svg
@@ -267,7 +271,7 @@ const TodayPlan = () => {
 
                     {/* Delete / Remove Icon */}
                     <button
-                      onClick={() => handleRemove(workout.id)}
+                      onClick={() => handleRemove(workout)}
                       className="text-gray-500 hover:text-red-400 p-2 transition-colors"
                       aria-label="Remove workout"
                     >
@@ -291,12 +295,24 @@ const TodayPlan = () => {
             })
           ) : (
             /* Empty State */
-            <div className="text-center py-20 bg-[#13141c] border border-[#222431] rounded-2xl">
-              <p className="text-gray-400 font-medium">
-                {activeTab === "today"
-                  ? "No workouts added to today's plan yet."
-                  : "No saved workouts found."}
-              </p>
+            <div className="text-center py-20 px-6 bg-[#13141c] border border-dashed border-[#2a2c38] rounded-2xl flex flex-col items-center gap-5">
+              <div>
+                <h3 className="text-white font-extrabold text-xl uppercase tracking-wide">
+                  Nothing here yet
+                </h3>
+                <p className="text-gray-400 text-sm mt-2">
+                  {activeTab === "today"
+                    ? "Browse the library and add a lift to get today moving."
+                    : "Browse the library and save a workout for later."}
+                </p>
+              </div>
+
+              <Link
+                href="/workouts"
+                className="px-6 py-2.5 rounded-full bg-[#d4ff26] text-black text-sm font-semibold hover:bg-[#c2ed1c] transition-all"
+              >
+                Go to workouts
+              </Link>
             </div>
           )}
         </div>
