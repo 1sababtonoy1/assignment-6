@@ -13,7 +13,7 @@ const TodayPlan = () => {
   const [activeTab, setActiveTab] = useState<"today" | "saved">("today");
   const [sortBy, setSortBy] = useState<"duration" | "calories" | "rating">("duration");
 
-  // Select active list based on selected tab[cite: 7]
+  // Select active list based on selected tab
   const currentList = activeTab === "today" ? todayPlan : wishlist;
 
   // Sorting logic
@@ -31,7 +31,7 @@ const TodayPlan = () => {
 
   const displayedWorkouts = sortWorkouts(currentList);
 
-  // Dynamic stats calculation for top banner[cite: 7]
+  // Dynamic stats calculation for top banner
   const totalExercises = currentList.length;
   const totalMinutes = currentList.reduce(
     (acc, curr) => acc + (Number(curr.duration) || 0),
@@ -42,7 +42,7 @@ const TodayPlan = () => {
     0
   );
 
-  // Handle removing workout from current tab[cite: 7]
+  // Handle removing workout from current tab
   const handleRemove = (id: string | number) => {
     if (activeTab === "today") {
       removeFromTodayPlan(id);
@@ -54,7 +54,7 @@ const TodayPlan = () => {
   return (
     <div className="min-h-screen bg-[#0d0e12] text-white p-6 md:p-12 font-sans">
       <div className="max-w-6xl mx-auto space-y-8">
-        {/* Header Section[cite: 7] */}
+        {/* Header Section */}
         <div>
           <h1 className="text-3xl font-black uppercase tracking-wider text-white">
             My Plan
@@ -64,7 +64,7 @@ const TodayPlan = () => {
           </p>
         </div>
 
-        {/* Stats Summary Banner[cite: 7] */}
+        {/* Stats Summary Banner */}
         <div className="bg-[#13141c] border border-[#222431] rounded-2xl p-6 md:p-8 grid grid-cols-1 md:grid-cols-3 gap-6 divide-y md:divide-y-0 md:divide-x divide-[#222431]">
           {/* Exercises */}
           <div className="flex flex-col pt-2 md:pt-0 md:px-4">
@@ -97,7 +97,7 @@ const TodayPlan = () => {
           </div>
         </div>
 
-        {/* Filter Controls Bar[cite: 7] */}
+        {/* Filter Controls Bar*/}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           {/* Tab Controls[cite: 7] */}
           <div className="flex bg-[#13141c] border border-[#222431] p-1 rounded-xl">
@@ -123,7 +123,7 @@ const TodayPlan = () => {
             </button>
           </div>
 
-          {/* Sort By Dropdown[cite: 7] */}
+          {/* Sort By Dropdown */}
           <div className="flex items-center gap-3">
             <span className="text-gray-400 text-sm font-medium">Sort By</span>
             <select
@@ -140,7 +140,7 @@ const TodayPlan = () => {
           </div>
         </div>
 
-        {/* Workout Cards List[cite: 7] */}
+        {/* Workout Cards List */}
         <div className="space-y-4">
           {displayedWorkouts.length > 0 ? (
             displayedWorkouts.map((workout: IWorkout, index: number) => {
