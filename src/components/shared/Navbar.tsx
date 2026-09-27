@@ -26,7 +26,7 @@ const Navbar = () => {
       <div className="mx-auto flex h-[70px] md:h-[94px] max-w-[1480px] items-center justify-between px-4 md:px-7">
 
         {/* LEFT - LOGO */}
-        <div className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3">
           <Image
             src={logo}
             alt="Fitlog logo"
@@ -37,7 +37,7 @@ const Navbar = () => {
           <span className="text-lg md:text-xl font-bold tracking-wide text-white">
             FITLOG
           </span>
-        </div>
+        </Link>
 
         {/* CENTER - NAVIGATION (desktop only) */}
         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-2">
@@ -51,31 +51,31 @@ const Navbar = () => {
 
         {/* RIGHT - counters (desktop only) */}
         <div className="hidden md:flex items-center gap-7">
-          <div className="flex items-center gap-3">
+          <Link href="/today-plan" className="flex items-center gap-3 hover:opacity-80 transition">
             <span className="text-sm text-gray-300">Plan</span>
             <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#b7ff00] text-xs font-bold text-black">
               {todayPlan.length}
             </span>
-          </div>
+          </Link>
 
-          <div className="flex items-center gap-3">
+          <Link href="/today-plan" className="flex items-center gap-3 hover:opacity-80 transition">
             <span className="text-sm text-gray-400">Saved</span>
             <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#343740] text-xs text-gray-400">
               {wishlist.length}
             </span>
-          </div>
+          </Link>
         </div>
 
         {/* MOBILE - compact counters + hamburger */}
         <div className="flex md:hidden items-center gap-3">
-          <div className="flex items-center gap-1">
+          <Link href="/today-plan" className="flex items-center gap-1">
             <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#b7ff00] text-xs font-bold text-black">
               {todayPlan.length}
             </span>
             <span className="flex h-6 w-6 items-center justify-center rounded-full border border-[#343740] text-xs text-gray-400">
               {wishlist.length}
             </span>
-          </div>
+          </Link>
 
           <button
             onClick={() => setMenuOpen((prev) => !prev)}
