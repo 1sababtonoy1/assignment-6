@@ -40,7 +40,7 @@ const WorkoutDetailsPage = async ({ params }: IWorkoutsDetailsPageProps) => {
   return (
     <div className="container mx-auto px-6 py-12 lg:py-20 font-sans max-w-6xl">
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
-        {/* Left Column: Image[cite: 2] */}
+        {/* Left Column: Image*/}
         <div className="w-full lg:w-1/2">
           <div className="relative w-full aspect-square md:aspect-[4/5] rounded-[32px] overflow-hidden shadow-2xl">
             <Image
@@ -54,10 +54,10 @@ const WorkoutDetailsPage = async ({ params }: IWorkoutsDetailsPageProps) => {
           </div>
         </div>
 
-        {/* Right Column: Details[cite: 2] */}
+        {/* Right Column: Details*/}
         <div className="w-full lg:w-1/2 flex flex-col justify-center">
           
-          {/* Header & Description[cite: 2] */}
+          {/* Header & Description */}
           <h1 className="text-4xl lg:text-5xl font-black text-white uppercase tracking-tight mb-4">
             {workout.name}
           </h1>
@@ -65,7 +65,7 @@ const WorkoutDetailsPage = async ({ params }: IWorkoutsDetailsPageProps) => {
             {workout.description}
           </p>
 
-          {/* Muscle Groups[cite: 2] */}
+          {/* Muscle Groups */}
           <div className="flex flex-wrap gap-3 mb-8">
             {workout.muscleGroups.map((muscle, idx) => (
               <span
@@ -77,7 +77,7 @@ const WorkoutDetailsPage = async ({ params }: IWorkoutsDetailsPageProps) => {
             ))}
           </div>
 
-          {/* Stats Box[cite: 2] */}
+          {/* Stats Box */}
           <div className="bg-[#181920] border border-[#2a2c38] rounded-2xl mb-8">
             <div className="flex justify-between items-center px-6 py-4 border-b border-[#2a2c38]">
               <span className="text-gray-500 text-[11px] font-bold tracking-wider uppercase">Equipment</span>
@@ -109,7 +109,7 @@ const WorkoutDetailsPage = async ({ params }: IWorkoutsDetailsPageProps) => {
             </div>
           </div>
 
-          {/* Instructions[cite: 2] */}
+          {/* Instructions */}
           <div className="mb-10">
             <h3 className="text-white font-bold text-sm uppercase tracking-wider mb-4">
               Instructions
@@ -123,7 +123,7 @@ const WorkoutDetailsPage = async ({ params }: IWorkoutsDetailsPageProps) => {
             </ol>
           </div>
 
-          {/* Action Buttons[cite: 2] */}
+          {/* Action Buttons */}
           <div className="flex flex-wrap items-center gap-4">
             <TodayButton workout={workout}></TodayButton>
             <WishListButton workout={workout}></WishListButton>
